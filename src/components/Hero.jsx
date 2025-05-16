@@ -6,10 +6,13 @@ import { useEffect, useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
+import AnimatedTitle from "./AnimatedTitle";
+import AnimatedHeroText from "./AnimatedHeroText";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
 
@@ -140,18 +143,18 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          G<b>A</b>MING
-        </h1>
+     
+        <AnimatedHeroText currentIndex={currentIndex}/>
+     
 
         <div className="absolute left-0 top-0 z-40 size-full">
-          <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-blue-100">
+          <div className="mt-12 px-5 sm:px-10">
+            <h1 className="special-font hero-heading text-blue-75 ">
               redefi<b>n</b>e
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Enter the Metagame Layer <br /> Unleash the Play Economy
+            <p className="mb-5 max-w-64 font-robert-regular text-blue-100 text-sm">
+              Enter the Metagame <br /> Unleash the Play Economy
             </p>
 
             <Button
@@ -165,7 +168,24 @@ const Hero = () => {
       </div>
 
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        G<b>A</b>MING
+              {currentIndex == 1 ? (
+            <>
+              G<b>A</b>MING
+            </>
+          ) : currentIndex === 2 ? (
+             <>
+              IDE<b>N</b>TITY
+            </>
+          ) : currentIndex === 3 ? (
+            <>
+              RE<b>A</b>LITY
+            </>
+            
+          ): currentIndex === 4 ? (
+              <>
+              AG<b>E</b>NTIC AI
+            </>
+          ):''}
       </h1>
     </div>
   );
